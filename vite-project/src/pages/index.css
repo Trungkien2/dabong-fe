@@ -1,0 +1,13 @@
+.card_match {
+  background: url("../assets/background.png");
+  padding: 20px;
+}
+
+.card_video {
+  position: relative;
+}
+
+.play_icon {
+  position: absolute;
+  bottom: 46%;
+}
