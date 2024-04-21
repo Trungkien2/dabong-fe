@@ -3,11 +3,21 @@ import * as ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import HomePage from "./pages/HomePage";
+import NewPage from "./pages/NewPage";
+import NewPageDetail from "./pages/NewPageDetail";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomePage />,
+  },
+  {
+    path: "/news",
+    element: <NewPage />,
+  },
+  {
+    path: "/news/:id",
+    element: <NewPageDetail />,
   },
 ]);
 

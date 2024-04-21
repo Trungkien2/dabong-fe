@@ -92,7 +92,10 @@ export default function Header() {
           <a href="/" className="text-sm font-semibold leading-6 text-white">
             Trang chủ
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-white">
+          <a
+            href="/news"
+            className="text-sm font-semibold leading-6 text-white"
+          >
             Tin tức
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-white">
