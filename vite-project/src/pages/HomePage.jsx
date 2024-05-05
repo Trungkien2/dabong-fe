@@ -18,6 +18,7 @@ const options = {
     "X-RapidAPI-Host": "free-football-soccer-videos.p.rapidapi.com",
   },
 };
+
 const HomePage = () => {
   const [video, setVideo] = useState();
   const [open, setOpen] = useState(false);
@@ -32,15 +33,16 @@ const HomePage = () => {
         console.error(error);
       }
     };
+
     get();
   }, []);
 
   return (
     <div>
       <Header />
-      <div className="mx-auto  max-w-7xl">
+      <div className="mx-auto  xl:max-w-7xl md:max-w-5xl sm: max-w-3xl">
         <h1
-          className="text-3xl rounded-lg p-2 text-white mt-10 text-center font-bold"
+          className="xl:text-3xl md:text-[16px] rounded-lg p-2 text-white mt-10 text-center font-bold"
           style={{
             background: `linear-gradient(142deg, #BB5014 0%, #8B0000 100%)`,
           }}
@@ -49,7 +51,7 @@ const HomePage = () => {
           Link Trực Tiếp Bóng Đá siêu nét, Xem Bóng Đá Trực Tuyến tốc độ cao
         </h1>
       </div>
-      <div className=" mx-auto max-w-[1500px] mt-9">
+      <div className="mx-auto max-w-[1500px] mt-9">
         <div className=" text-white text-[24px] flex  bg-gray-800 p-4">
           <div className=" ">
             <div className="flex bg-green-500 p-2 rounded-md">
@@ -72,7 +74,7 @@ const HomePage = () => {
           <p className="text-orange-300 mr-3">Hôm nay</p>
           <p className="text-red-400">Ngày mai </p>
         </div>
-        <div className="grid grid-cols-2 gap-4 text-white mt-3">
+        <div className="grid xl:grid-cols-2 lg:grid-cols-1 gap-4 text-white mt-3">
           {Array.from({ length: 12 }).map((item) => (
             <div className="card_match" key={item}>
               {/* header */}
