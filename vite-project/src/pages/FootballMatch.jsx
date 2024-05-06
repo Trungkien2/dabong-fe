@@ -31,7 +31,7 @@ const FootballMatch = () => {
             {/* header */}
             <div className="flex justify-between">
               <div className="p-1 bg-red-500 text-center rounded-sm">
-                9:00 19/04
+                {item?.start_time || "9:00 19/04"}
               </div>
             </div>
             {/* content */}
