@@ -5,6 +5,7 @@ import "./index.css";
 import HomePage from "./pages/HomePage";
 import NewPage from "./pages/NewPage";
 import NewPageDetail from "./pages/NewPageDetail";
+import FootballMatch from "./pages/FootballMatch";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/news",
     element: <NewPage />,
+  },
+  {
+    path: "/football_match",
+    element: <FootballMatch />,
   },
   {
     path: "/news/:id",

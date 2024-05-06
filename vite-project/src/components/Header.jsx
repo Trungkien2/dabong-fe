@@ -98,7 +98,10 @@ export default function Header() {
           >
             Tin tức
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-white">
+          <a
+            href="/football_match"
+            className="text-sm font-semibold leading-6 text-white"
+          >
             Lịch thi đấu
           </a>
         </Popover.Group>

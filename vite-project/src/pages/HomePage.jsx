@@ -9,6 +9,7 @@ import axios from "axios";
 import "./index.css";
 import logomTeam from "../assets/logoTeam.webp";
 import ModalPlayVideo from "../components/ModalPlayVideo";
+import * as API from "../api/footballMatchApi";
 
 const options = {
   method: "GET",
@@ -22,6 +23,7 @@ const options = {
 const HomePage = () => {
   const [video, setVideo] = useState();
   const [open, setOpen] = useState(false);
+  const [GetListFootballMatch, setGetListFootballMatch] = useState([]);
   const [htmlString, setHtmlString] = useState("");
   useEffect(() => {
     const get = async () => {
@@ -33,8 +35,23 @@ const HomePage = () => {
         console.error(error);
       }
     };
+    const get2 = async () => {
+      try {
+        const res = await API.getList({
+          fields: ["$all", { team_a: ["$all"] }, { team_b: ["$all"] }],
+          where: {
+            status: "IN_PROGESS",
+          },
+        });
+        console.log("🚀 ~ get2 ~ res:", res);
+        setGetListFootballMatch(res?.rows);
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
     get();
+    get2();
   }, []);
 
   return (
@@ -52,7 +69,7 @@ const HomePage = () => {
         </h1>
       </div>
       <div className="mx-auto max-w-[1500px] mt-9">
-        <div className=" text-white text-[24px] flex  bg-gray-800 p-4">
+        <div className=" text-white lg:text-[24px] md:text-[16px] sm:text-[12px] flex  bg-gray-800 p-4">
           <div className=" ">
             <div className="flex bg-green-500 p-2 rounded-md">
               <img src={foobat} width={16} height={16} />
@@ -75,7 +92,7 @@ const HomePage = () => {
           <p className="text-red-400">Ngày mai </p>
         </div>
         <div className="grid xl:grid-cols-2 lg:grid-cols-1 gap-4 text-white mt-3">
-          {Array.from({ length: 12 }).map((item) => (
+          {GetListFootballMatch.map((item) => (
             <div className="card_match" key={item}>
               {/* header */}
               <div className="flex justify-between">
@@ -88,17 +105,19 @@ const HomePage = () => {
               <div className="flex justify-between mt-3 mx-5">
                 <div className="text-center">
                   <img src={logomTeam} width={64} height={64} />
-                  <p>Team 1</p>
+                  <p>{item?.team_a?.name}</p>
                 </div>
                 <div className="text-center">
                   <div className="bg-green-500 rounded-sm p-2">
                     Đang điễn ra
                   </div>
-                  <h1 className="text-[30px] font-bold">VS</h1>
+                  <h1 className="text-[30px] font-bold">
+                    {item.score_team_a} VS {item.score_team_b}
+                  </h1>
                 </div>
                 <div className="text-center">
                   <img src={logomTeam} width={64} height={64} />
-                  <p>Team 2</p>
+                  <p>{item?.team_b?.name}</p>
                 </div>
               </div>
             </div>
