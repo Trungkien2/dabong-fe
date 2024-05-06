@@ -7,7 +7,7 @@ import live from "../assets/livescore.svg";
 import playIcon from "../assets/playIcon.svg";
 import axios from "axios";
 import "./index.css";
-import logomTeam from "../assets/logoTeam.webp";
+// import logomTeam from "../assets/logoTeam.webp";
 import ModalPlayVideo from "../components/ModalPlayVideo";
 import * as API from "../api/footballMatchApi";
 
@@ -104,7 +104,7 @@ const HomePage = () => {
               {/* content */}
               <div className="flex justify-between mt-3 mx-5">
                 <div className="text-center">
-                  <img src={logomTeam} width={64} height={64} />
+                  <img src={item?.team_a?.link_logo} width={64} height={64} />
                   <p>{item?.team_a?.name}</p>
                 </div>
                 <div className="text-center">
@@ -116,7 +116,7 @@ const HomePage = () => {
                   </h1>
                 </div>
                 <div className="text-center">
-                  <img src={logomTeam} width={64} height={64} />
+                  <img src={item?.team_b?.link_logo} width={64} height={64} />
                   <p>{item?.team_b?.name}</p>
                 </div>
               </div>
