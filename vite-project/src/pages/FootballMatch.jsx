@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
-import Header from "../components/Header";
 import * as API from "../api/footballMatchApi";
+import Header from "../components/Header";
 
 const FootballMatch = () => {
   const [GetListFootballMatch, setGetListFootballMatch] = useState([]);
@@ -28,6 +28,12 @@ const FootballMatch = () => {
       <div className=" mx-auto max-w-[1500px] text-white">
         {GetListFootballMatch.map((item) => (
           <div className="card_match" key={item}>
+            {/* header */}
+            <div className="flex justify-between">
+              <div className="p-1 bg-red-500 text-center rounded-sm">
+                9:00 19/04
+              </div>
+            </div>
             {/* content */}
             <div className="flex justify-between mt-3 mx-5">
               <div className="text-center">
