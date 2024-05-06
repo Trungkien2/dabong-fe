@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import * as API from "../api/footballMatchApi";
-import logomTeam from "../assets/logoTeam.webp";
 
 const FootballMatch = () => {
   const [GetListFootballMatch, setGetListFootballMatch] = useState([]);
@@ -32,14 +31,14 @@ const FootballMatch = () => {
             {/* content */}
             <div className="flex justify-between mt-3 mx-5">
               <div className="text-center">
-                <img src={logomTeam} width={64} height={64} />
+                <img src={item?.team_a?.link_logo} width={64} height={64} />
                 <p>{item?.team_a?.name}</p>
               </div>
               <div className="text-center">
                 <h1 className="text-[30px] font-bold">VS</h1>
               </div>
               <div className="text-center">
-                <img src={logomTeam} width={64} height={64} />
+                <img src={item?.team_b?.link_logo} width={64} height={64} />
                 <p>{item?.team_b?.name}</p>
               </div>
             </div>
